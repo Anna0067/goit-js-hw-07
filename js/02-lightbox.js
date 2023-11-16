@@ -19,26 +19,4 @@ document.addEventListener("DOMContentLoaded", function () {
         captionPosition: "bottom",
         captionDelay: 250,
     });
-
-    lightbox.on("close.simplelightbox", function () {
-        document.removeEventListener("keydown", handleKeyPress);
-    });
-
-    galleryContainer.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (event.target.tagName === "IMG") {
-            const index = event.target.parentElement.dataset.index;
-            lightbox.openAt(index);
-        }
-    });
-
-    const handleKeyPress = (event) => {
-        if (event.key === "ArrowLeft") {
-            lightbox.prev();
-        } else if (event.key === "ArrowRight") {
-            lightbox.next();
-        } else if (event.key === "Escape") {
-            lightbox.close();
-        }
-    };
 });
